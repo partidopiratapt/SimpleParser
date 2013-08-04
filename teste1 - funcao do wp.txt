@@ -1,0 +1,148 @@
+String -->[list] [li]a[/li] [li]b[/li] [li]c[/li] [/list] [list] [li] [list] [/list] [/li] [li] [list] [/list] [/li] [li][list] [/list][/li] [/list]
+Array
+(
+    [0] => [list]
+[li]a[/li]
+[li]b[/li]
+[li]c[/li]
+[/list]
+    [1] => 
+    [2] => list
+    [3] => 
+    [4] => 
+    [5] => 
+[li]a[/li]
+[li]b[/li]
+[li]c[/li]
+
+    [6] => 
+)
+String --> [li]a[/li] [li]b[/li] [li]c[/li] 
+Array
+(
+    [0] => [li]a[/li]
+    [1] => 
+    [2] => li
+    [3] => 
+    [4] => 
+    [5] => a
+    [6] => 
+)
+String -->a
+Array
+(
+    [0] => [li]b[/li]
+    [1] => 
+    [2] => li
+    [3] => 
+    [4] => 
+    [5] => b
+    [6] => 
+)
+String -->b
+Array
+(
+    [0] => [li]c[/li]
+    [1] => 
+    [2] => li
+    [3] => 
+    [4] => 
+    [5] => c
+    [6] => 
+)
+String -->c
+Array
+(
+    [0] => [list]
+[li]
+[list]
+[/list]
+    [1] => 
+    [2] => list
+    [3] => 
+    [4] => 
+    [5] => 
+[li]
+[list]
+
+    [6] => 
+)
+String --> [li] [list] 
+Array
+(
+    [0] => [li]
+    [1] => 
+    [2] => li
+    [3] => 
+    [4] => 
+    [5] => 
+    [6] => 
+)
+String -->
+Array
+(
+    [0] => [list]
+    [1] => 
+    [2] => list
+    [3] => 
+    [4] => 
+    [5] => 
+    [6] => 
+)
+String -->
+Array
+(
+    [0] => [li]
+[list]
+[/list]
+[/li]
+    [1] => 
+    [2] => li
+    [3] => 
+    [4] => 
+    [5] => 
+[list]
+[/list]
+
+    [6] => 
+)
+String --> [list] [/list] 
+Array
+(
+    [0] => [list]
+[/list]
+    [1] => 
+    [2] => list
+    [3] => 
+    [4] => 
+    [5] => 
+
+    [6] => 
+)
+String --> 
+Array
+(
+    [0] => [li][list]
+[/list][/li]
+    [1] => 
+    [2] => li
+    [3] => 
+    [4] => 
+    [5] => [list]
+[/list]
+    [6] => 
+)
+String -->[list] [/list]
+Array
+(
+    [0] => [list]
+[/list]
+    [1] => 
+    [2] => list
+    [3] => 
+    [4] => 
+    [5] => 
+
+    [6] => 
+)
+String --> 
