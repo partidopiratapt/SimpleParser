@@ -802,6 +802,7 @@ function do_shortcode($str) {
     global $shortcode_tags;
     if (empty($shortcode_tags) || !is_array($shortcode_tags))
         return $str;
+    $tagnames = array_keys($shortcode_tags);
     $ret = array();
     $i = strpos($str, '[');
     if ($i !== FALSE) {
@@ -825,6 +826,11 @@ function do_shortcode($str) {
                         $ret[2] = $m[0];
                         unset($m[0]);
                         $ret[3] = '=' . $m[1];
+                    }
+                    if (!in_array($ret[2], $tagnames)) {
+                        unset($tag);
+                        $result .= $bbcode->text;
+                        $ret = array();
                     }
                 } else {
                     $newTag = substr($bbcode->text, 1, strlen($bbcode->text) - 2);
