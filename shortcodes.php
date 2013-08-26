@@ -804,8 +804,10 @@ function do_shortcode($str) {
         return $str;
     $tagnames = array_keys($shortcode_tags);
     $ret = array();
-    $i = strpos($str, '[');
-    if ($i !== FALSE) {
+    $pattern = get_shortcode_regex();
+    //echo $pattern.'<br />';
+    if (preg_match('/'.$pattern.'/s', $str) == 1) {
+        $i = strpos($str, '[');
         $result = substr($str, 0, -(strlen($str)-$i));
         $str = substr($str, $i);
         $ignore = 0;
@@ -831,6 +833,18 @@ function do_shortcode($str) {
                         unset($tag);
                         $result .= $bbcode->text;
                         $ret = array();
+                    } else {
+                        if (strpos($str, '[/' . $ret[2] . ']') === FALSE) {
+                            $ret[0] .= ']';
+                            $ret[1] = '';
+                            $ret[4] = '';
+                            $ret[5] = '';
+                            $ret[6] = '';
+                            ksort($ret);
+                            unset($tag);
+                            $result .= do_shortcode_tag($ret);
+                            $ret = array();
+                        }
                     }
                 } else {
                     $newTag = substr($bbcode->text, 1, strlen($bbcode->text) - 2);
@@ -949,7 +963,6 @@ function get_shortcode_regex() {
  */
 function do_shortcode_tag($m) {
     global $shortcode_tags;
-
     // allow [[foo]] syntax for escaping a tag
     if ($m[1] == '[' && $m[6] == ']') {
         return substr($m[0], 1, -1);
